@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  # Your Python application
+  app:
+    build: .  # Build from the Dockerfile in this directory
+    image: mohamedlifa7/python-etl-app:1.0 # Tag the built image with this name
+    container_name: python-etl-app # Name the running container this
+    environment:
+      # These are the environment variables for your app
+      MONGO_CONN_STRING: "mongodb://mongo:27017/"
+      DB_NAME: "taxi_analysis"
+    depends_on:
+      - mongo # Tells Docker to start Mongo before starting the app
+    networks: # <-- Connect this service to your network
+      - my-app-network
+
+  # The MongoDB service
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    networks: # <-- Connect this service to your network
+      - my-app-network
+    ports:
+      # This maps the container's port 27017 to your host's port 27017
+      - "27017:27017"
+  
+  # NEW: A simple web server to provide the Power BI file
+  report_server:
+    image: nginx:alpine  # Use a tiny, official Nginx web server image
+    container_name: powerbi-report-server
+    ports:
+      # Map your host's port 8080 to the container's port 80
+      - "8080:80"
+    volumes:
+      # Mount your local index.pbix file directly into the Nginx web root
+      - ./index.pbix:/usr/share/nginx/html/index.pbix
+    depends_on:
+      - app  # Optional: Wait for the app to be up first
+    networks: # <-- Connect this service to your network
+      - my-app-network
+
+# This explicitly defines the network
+networks:
+  my-app-network:
+    driver: bridge # 'bridge' is the default and most common driver
