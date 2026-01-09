@@ -4,18 +4,20 @@ This repository contains all the labs and coursework for my Big Data Analytics m
 
 ## Labs Overview
 
-- **[Lab 1: Web Scraping](./lab1/)**: A project focused on scraping book data from the web using Python. The lab covers fetching paginated content, parsing HTML with BeautifulSoup, and storing the results in a CSV file with pandas.
+- **[Lab 1: Web Scraping](./lab1/)**: A project focused on scraping book data from the web. The lab covers fetching paginated content, parsing HTML, and storing the results in a CSV file.
 
-- **[Lab 2: Reading Big Data Files](./lab2/)**: Explores techniques for handling datasets with large size. This lab compares the performance and memory efficiency of reading large CSV files using pandas with chunking, Dask dataframes, and various compression strategies.
+- **[Lab 2: Reading Big Data Files](./lab2/)**: Explores techniques for handling large datasets (5GB+). This lab compares the performance and memory efficiency of reading large CSV files using chunking, parallel processing, and compression strategies.
 
+- **[Lab 3: Full Data Analysis Project](./lab3/)**: Demonstrates a complete data analysis workflow from data preprocessing and cleaning to visualization and reporting with interactive dashboards.
 
-## Tech Stack
+- **[Lab 4: Docker Containerization](./lab4/)**: Focuses on containerizing data analysis applications with Docker, including building images, pushing to Docker Hub, and managing multi-container environments with networking and volumes.
 
-- **Language**: Python 3
-- **Libraries**:
-    - `requests` for making HTTP requests.
-    - `BeautifulSoup4` for parsing HTML.
-    - `pandas` for data manipulation and storage.
-    - `dask` for parallel and out-of-core computing.
-    - `pyarrow` for efficient in-memory data processing.
-    - `Jupyter Notebook` for interactive development.
+- **[Lab 5: MongoDB NoSQL Database](./lab5/)**: Introduction to NoSQL databases with MongoDB, covering document-oriented data modeling, CRUD operations, and querying techniques.
+
+- **[Lab 6: Cassandra NoSQL Database](./lab6/)**: Explores distributed NoSQL database systems with Apache Cassandra, focusing on wide-column storage, data distribution, and high-availability architectures.
+
+- **[Lab 7: Apache Kafka Streaming](./lab7/)**: Implements real-time data streaming and event-driven architectures using Apache Kafka, including sensor simulation and dashboard monitoring.
+
+- **[Lab 8: MapReduce Simulation](./lab8/)**: Simulates MapReduce jobs for distributed computing, analyzing web server logs to count requests per status code and understand the MapReduce paradigm.
+
+- **[Lab 9: Spark Batch & Streaming Processing](./lab9/)**: Comprehensive lab on Apache Spark covering interactive processing with Spark Shell, batch processing with Java applications, and real-time streaming with Structured Streaming on a Hadoop cluster.
